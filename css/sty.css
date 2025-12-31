@@ -1,0 +1,571 @@
+/* =========================
+   GLOBAL RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================
+   BASE STYLES
+========================= */
+html {
+  scroll-behavior: smooth;
+  
+}
+
+body {
+  font-family: "Inter", Arial, sans-serif;
+  line-height: 1.6;
+  color: #1a1a1a;
+  background: rgba(196, 197, 196)
+   /* background: linear-gradient(to right, #F4EADF, #E3D4CA, #ead8ce); */
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+.hero-section {
+  min-height: 100vh;
+  background-image: url("../assests/portfolio bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertical center */
+  align-items: center;     /* horizontal center */
+
+  padding: 0 80px;
+  text-align: center;
+}
+
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(195, 192, 192, 0.6);
+}
+
+.hero-section * {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-heading {
+  font-size: 2.8rem;
+  color: #ffffff;
+  font-weight: 700;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.hero-content {
+  font-size: 1.1rem;
+  color: #eaeaea;
+  max-width: 700px;
+  margin: 0 auto 32px;
+  text-align: center;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.btn {
+  padding: 12px 28px;
+  background: #ffffff;
+  color: #000000;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+  width: 100%;
+  position: absolute;
+  top: 20px;
+  left: 0;
+  z-index: 10;
+}
+
+.nav-links ul {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: #ffffff;
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: #ffffff;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* =========================
+   ABOUT
+========================= */
+#about {
+  text-align: center;
+  padding: 50px 20px;
+}
+.about-heading {
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.about-content {
+  padding: 50px 100px;
+  background-color: #ffffff;
+  border-radius: 10px 20px 60px 120px;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+  color: #000000;
+  text-align: justify;
+}
+
+/* =========================
+   SKILLS
+========================= */
+#skills {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  list-style: none;
+  margin-top: 32px;
+  
+  
+}
+
+.skill-button {
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+  border-radius: 10px 20px 30px 40px;
+  font-size: 0.9rem;
+  background-color: #ffffff;
+  color: #000;
+  
+  cursor: pointer;
+  
+}
+
+
+
+/* =========================
+   EXPERIENCE TIMELINE
+========================= */
+#experience-timeline {
+  position: relative;
+  padding: 80px 20px;
+}
+
+/* Section heading */
+.experience-heading {
+  text-align: center;
+  font-size: 2.4rem;
+  margin-bottom: 100px;
+  font-weight: 700;
+}
+
+/* Vertical timeline line */
+#experience-timeline::before {
+  content: "";
+  position: absolute;
+  top: 230px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: calc(100% - 380px);
+  background-color: #000;
+}
+
+/* =========================
+   EXPERIENCE CARDS (COMMON)
+========================= */
+.exp-container,
+.exp-container-r {
+  position: relative;
+  width: 45%;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  margin-bottom: 80px;
+
+  /* Initial hidden state */
+  opacity: 0;
+  transform: translateY(40px);
+
+  /* Smooth animation */
+  transition: opacity 0.8s ease, transform 0.8s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+/* =========================
+   AUTO ANIMATION ON SECTION HOVER
+========================= */
+#experience-timeline:hover .exp-container,
+#experience-timeline:hover .exp-container-r {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================
+   STAGGERED EFFECT
+========================= */
+.exp-container:nth-of-type(2) {
+  transition-delay: 0.2s;
+}
+
+.exp-container-r:nth-of-type(3) {
+  transition-delay: 0.4s;
+}
+
+/* =========================
+   LEFT & RIGHT ALIGNMENT
+========================= */
+.exp-container {
+  left: 0;
+  border-radius: 10px 20px 60px 120px;
+}
+
+.exp-container-r {
+  left: 55%;
+  border-radius: 20px 10px 120px 60px;
+}
+
+/* =========================
+   HOVER ENHANCEMENT
+========================= */
+.exp-container:hover,
+.exp-container-r:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+  opacity: 1;
+}
+
+/* Fade non-hovered cards */
+#experience-timeline:hover .exp-container:not(:hover),
+#experience-timeline:hover .exp-container-r:not(:hover) {
+  opacity: 0.4;
+}
+
+/* =========================
+   TIMELINE DOTS
+========================= */
+.exp-container::before,
+.exp-container-r::before {
+  content: "";
+  position: absolute;
+  top: 32px;
+  width: 16px;
+  height: 16px;
+  background-color: #000;
+  border-radius: 50%;
+}
+
+.exp-container::before {
+  right: -38px;
+}
+
+.exp-container-r::before {
+  left: -38px;
+}
+
+/* =========================
+   TEXT STYLES
+========================= */
+.card-heading {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.card-subheading {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+.card-content {
+  margin-top: 12px;
+  padding: 0 10px;
+  text-align: justify;
+  color: #444;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+@media (max-width: 768px) {
+
+  #experience-timeline::before {
+    left: 20px;
+    height: calc(100% - 250px);
+  }
+
+  .exp-container,
+  .exp-container-r {
+    width: 100%;
+    left: 0;
+    padding-left: 50px;
+  }
+
+  .exp-container::before,
+  .exp-container-r::before {
+    left: 12px;
+    right: auto;
+  }
+}
+
+/* =========================
+   PROJECTS
+========================= */
+#project {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.pro-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+   cursor: pointer;
+  transition: overlay 0.6s ease;
+}
+
+.project-card,
+.testing-project-card {
+  max-width: 500px;
+  width: 100%;
+  min-height: 400px;
+  padding: 25px;
+  margin: 20px;
+  background: #ffffff;
+  border-radius: 30px 60px;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+}
+
+.testing-project-card:hover,
+.project-card:hover {
+  opacity: 0.6;
+}
+.pro-card-btn1{
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #000;
+  color: #fff;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  align-items: center;
+  transition: background 0.3s ease;
+  justify-content: center;
+  
+}
+
+.pro-card-btn2 {
+  display: block;              /* change from inline-block */
+  width: fit-content;          /* button wraps content */
+  margin: 25px auto 0;         /* centers horizontally */
+  
+  padding: 10px 22px;
+  background: #000;
+  color: #fff;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.pro-card-btn2{
+  text-align: center;
+}
+.pro-card-btn1:hover,
+.pro-card-btn2:hover {
+  background: #3e3d3d;
+}
+
+.pro-card-heading,
+.pro-card-stach,
+.pro-card-subheading{
+  text-align: center;
+}
+
+/* =========================
+   FOOTER
+========================= */
+#footer {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #ffffff;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  list-style: none;
+}
+
+.footer-links a {
+  color: #000000;
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+}
+
+.footer-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: #000000;
+  transition: width 0.3s ease;
+}
+.footer-links a:hover::after {
+  width: 100%;
+  
+}
+
+.footer-links a:hover {
+  color: #555555;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+/* Tablets & Mobiles */
+@media (max-width: 768px) {
+
+  #experience-timeline::before {
+    left: 20px;
+    height: calc(100% - 200px);
+  }
+
+  .exp-container,
+  .exp-container-r {
+    width: 100%;
+    left: 0;
+    padding-left: 50px;
+  }
+
+  .exp-container::before,
+  .exp-container-r::before {
+    left: 12px;
+    right: auto;
+  }
+
+  .about-content {
+    padding: 20px 40px;
+  }
+
+  .project-card,
+  .testing-project-card {
+    max-width: 100%;
+  }
+}
+
+/* Small Mobiles */
+@media (max-width: 576px) {
+
+  .hero-heading {
+    font-size: 2rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .about-content {
+    padding: 40px;
+  }
+
+  .skill-button {
+    width: 75px;
+    height: 75px;
+    font-size: 0.8rem;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+/* Large Screens */
+@media (min-width: 1400px) {
+
+  .hero-content {
+    max-width: 900px;
+  }
+
+  .project-card,
+  .testing-project-card {
+    max-width: 520px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
